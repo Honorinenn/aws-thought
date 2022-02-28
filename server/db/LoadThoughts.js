@@ -21,3 +21,12 @@ allUsers.forEach(user => {
       }
     }
 });
+
+//make a call to the database with the service interface object, dynamoDB//
+dynamodb.put(params, (err, data) => {
+    if (err) {
+      console.error("Unable to add thought", user.username, ". Error JSON:", JSON.stringify(err, null, 2));
+    } else {
+      console.log("PutItem succeeded:", user.username);
+    }
+});
