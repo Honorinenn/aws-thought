@@ -1,5 +1,9 @@
 const AWS = require('aws-sdk');
-const dynamodb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
+AWS.config.update({
+    region: "us-east-2",
+    endpoint: "http://localhost:8000"
+  });
+  const dynamodb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
 
   const params = {
     TableName : "Thoughts",
@@ -16,7 +20,7 @@ const dynamodb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
       WriteCapacityUnits: 10
     }
   };
-
+  
   //Call to the dynamoDB instance to create a table//
   dynamodb.createTable(params, (err, data) => {
     if (err) {
