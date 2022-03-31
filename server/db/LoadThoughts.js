@@ -10,6 +10,7 @@ AWS.config.update({
   console.log("Importing thoughts into DynamoDB. Please wait.");
 const allUsers = JSON.parse(fs.readFileSync('./server/seed/users.json', 'utf8'));
 
+
 //Create params object//
 allUsers.forEach(user => {
     const params = {
@@ -19,14 +20,12 @@ allUsers.forEach(user => {
         "createdAt": user.createdAt,
         "thought": user.thought
       }
-    }
-});
-
-//make a call to the database with the service interface object, dynamoDB//
-dynamodb.put(params, (err, data) => {
-    if (err) {
-      console.error("Unable to add thought", user.username, ". Error JSON:", JSON.stringify(err, null, 2));
-    } else {
-      console.log("PutItem succeeded:", user.username);
-    }
+    };
+    dynamodb.put(params, (err, data) => {
+     if (err) {
+       console.error("Unable to add thought", user.username, ". Error JSON:", JSON.stringify(err, null, 2));
+     } else {
+       console.log("PutItem succeeded:", user.username);
+     }
+    });
 });
