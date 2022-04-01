@@ -1,8 +1,8 @@
 const AWS = require('aws-sdk');
 AWS.config.update({
-    region: "us-east-2",
-    endpoint: "http://dynamodb.us-east-2.amazonaws.com"
-  });
+  region: "us-east-2",
+  endpoint: "http://dynamodb.us-east-2.amazonaws.com"
+});
   const dynamodb = new AWS.DynamoDB({apiVersion: '2012-08-10'});
 
   const params = {
@@ -28,4 +28,4 @@ AWS.config.update({
     } else {
         console.log("Created table. Table description JSON:", JSON.stringify(data, null, 2));
     }
-});
+ });
