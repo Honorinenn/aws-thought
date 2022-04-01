@@ -21,6 +21,12 @@ router.get('/users', (req, res) => {
         res.json(data.Items);
       }
     });
-  });
+    
+});
+
+// More to come
+router.get('/users/:username', (req, res) => {
+    console.log(`Querying for thought(s) from ${req.params.username}.`);
+});
 
   module.exports = router;
