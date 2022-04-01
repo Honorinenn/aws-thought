@@ -25,7 +25,7 @@ allUsers.forEach(user => {
      if (err) {
        console.error("Unable to add thought", user.username, ". Error JSON:", JSON.stringify(err, null, 2));
      } else {
-       console.log("PutItem succeeded:", user.username);
+       console.log("PutItem succeeded:", user.username, ". Table description JSON:", JSON.stringify(data, null, 2));
      }
     });
 });
