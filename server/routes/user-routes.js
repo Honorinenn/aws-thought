@@ -24,24 +24,9 @@ router.get('/users', (req, res) => {
     
 });
 
-// More to come
-const params = {
-    TableName: table,
-    KeyConditionExpression: '#un = :user',
-    ExpressionAttributeNames: {
-      '#un': 'username',
-      '#ca': 'createdAt',
-      '#th': 'thought',
-    },
-    ExpressionAttributeValues: {
-      ':user': req.params.username,
-    },
-    ProjectionExpression: '#th, #ca',
-    ScanIndexForward: false,
-  };
 
-router.get('/users/:username', (req, res) => {
-    console.log(`Querying for thought(s) from ${req.params.username}.`);
-});
+    
+
+
 
   module.exports = router;
