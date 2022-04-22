@@ -51,5 +51,16 @@ router.get('/users/:username', (req, res) => {
       }
     });
 });
-  
+// Create new user at /api/users
+router.post('/users', (req, res) => {
+  const params = {
+    TableName: table,
+    Item: {
+      username: req.body.username,
+      createdAt: Date.now(),
+      thought: req.body.thought,
+    },
+  };
+  // database call
+});  
 module.exports = router;
