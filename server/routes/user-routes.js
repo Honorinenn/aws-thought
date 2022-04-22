@@ -62,5 +62,14 @@ router.post('/users', (req, res) => {
     },
   };
   // database call
+  dynamodb.put(params, (err, data) => {
+    if (err) {
+      console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
+      res.status(500).json(err); // an error occurred
+    } else {
+      console.log("Added item:", JSON.stringify(data, null, 2));
+      res.json({"Added": JSON.stringify(data, null, 2)});
+    }
+  });
 });  
 module.exports = router;
