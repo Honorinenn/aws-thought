@@ -70,6 +70,6 @@ router.post('/users', (req, res) => {
       console.log("Added item:", JSON.stringify(data, null, 2));
       res.json({"Added": JSON.stringify(data, null, 2)});
     }
-  });
+  }); //ends the route for 
 });  
 module.exports = router;
