@@ -6,6 +6,7 @@ const Profile = props => {
   const { username: userParam } = useParams();
   const [isLoaded, setIsLoaded] = useState(false);
   const [thoughts, setThoughts] = useState([{
+
     username: userParam,
     createdAt: '', 
     thought: '',
