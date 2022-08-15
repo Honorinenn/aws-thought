@@ -7,3 +7,15 @@ const storage = multer.memoryStorage({
       callback(null, '');
     },
   });
+
+  // image is the key!
+const upload = multer({ storage }).single('image');
+
+const s3 = new AWS.S3({
+    apiVersion: '2006-03-01',
+  });
+
+  router.post('/image-upload', upload, (req, res) => {
+    // set up params config
+    // set up S3 service call
+  });
