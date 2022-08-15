@@ -17,9 +17,16 @@ const s3 = new AWS.S3({
   });
 
   router.post('/image-upload', upload, (req, res) => {
-    // set up params config
-    
-        const params = paramsConfig(req.file);
+     // set up params config
+     const params = paramsConfig(req.file);
         // set up S3 service call
+     s3.upload(params, (err, data) => {
+            if (err) {
+              console.log(err);
+              res.status(500).send(err);
+            }
+            res.json(data);
+        });
+
       });
    
